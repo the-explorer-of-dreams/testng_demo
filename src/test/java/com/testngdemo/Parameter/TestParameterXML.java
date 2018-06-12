@@ -11,6 +11,8 @@ import java.util.Properties;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import javax.print.DocFlavor;
+
 public class TestParameterXML {
 
     Connection con;
@@ -27,8 +29,7 @@ public class TestParameterXML {
 
         try {
             // get properties file from project classpath
-//            String path = System.getProperty("user.dir")+"\\"+dbconfig;
-            String path = this.getClass().getResource("/").getPath();
+            String path = System.getProperty("user.dir")+"/src/test/com."+dbconfig;
             System.out.println("path => "+path);
             //input = getClass().getClassLoader().getResourceAsStream(path);
 
@@ -60,6 +61,18 @@ public class TestParameterXML {
             }
         }
 
+    }
+
+    @Test
+    public void getFilePath(){
+        String path1 = this.getClass().getResource("/").getPath();
+        System.out.println("this.getClass().getResource(\"/\").getPath()="+path1);
+        String path2 = this.getClass().getResource("").getPath();
+        System.out.println("this.getClass().getResource(\"\").getPath()="+path2);
+        URL path3 = this.getClass().getClassLoader().getResource("testng.xml");
+        System.out.println("this.getClass().getClassLoader().getResource(\"testng.xml\")="+path3);
+        System.out.println("System.getProperty(\"user.dir\")="+System.getProperty("user.dir"));
+        System.out.println( "System.getProperty(\"java.class.path\")="+System.getProperty("java.class.path"));
     }
 
 }
