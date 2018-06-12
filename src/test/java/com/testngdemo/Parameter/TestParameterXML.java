@@ -29,12 +29,10 @@ public class TestParameterXML {
 
         try {
             // get properties file from project classpath
-            String path = System.getProperty("user.dir")+"/src/test/com."+dbconfig;
+            String path =this.getClass().getResource("/").getPath()+dbconfig;
             System.out.println("path => "+path);
-            //input = getClass().getClassLoader().getResourceAsStream(path);
 
-            //prop.load(input);
-            prop.load(new FileInputStream(dbconfig));
+            prop.load(new FileInputStream(path));
 
             String drivers = prop.getProperty("jdbc.driver");
             String connectionURL = prop.getProperty("jdbc.url");
