@@ -1,6 +1,6 @@
 package com.testngdemo.basic;
 
-import com.testngdemo.RandomEmailGenerator;
+import com.testngdemo.SpringIntegration.RandomEmailGenerator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
